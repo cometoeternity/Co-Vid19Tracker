@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Co_Vid19TrackerWPFTest
+namespace Co_Vid19Tracker
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
