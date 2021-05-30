@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Co-Vid19Tracker", "Co-Vid19Tracker\Co-Vid19Tracker.csproj", "{3FC228F1-A020-4C5C-B5F8-2C6F348E9D74}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A5BF51EC-3372-4231-8247-B3D35CDA62DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Co-Vid19TrackerConsole", "Tests\Co-Vid19TrackerConsole\Co-Vid19TrackerConsole.csproj", "{DE500252-27C7-41CF-916B-B6488C0F1C2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{3FC228F1-A020-4C5C-B5F8-2C6F348E9D74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FC228F1-A020-4C5C-B5F8-2C6F348E9D74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FC228F1-A020-4C5C-B5F8-2C6F348E9D74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE500252-27C7-41CF-916B-B6488C0F1C2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE500252-27C7-41CF-916B-B6488C0F1C2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE500252-27C7-41CF-916B-B6488C0F1C2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE500252-27C7-41CF-916B-B6488C0F1C2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DE500252-27C7-41CF-916B-B6488C0F1C2C} = {A5BF51EC-3372-4231-8247-B3D35CDA62DA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {61B45A99-B2A3-40C1-B280-16456B6C7AB0}
