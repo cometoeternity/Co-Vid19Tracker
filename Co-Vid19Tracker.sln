@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Co-Vid19Tracker", "Co-Vid19Tracker\Co-Vid19Tracker.csproj", "{3FC228F1-A020-4C5C-B5F8-2C6F348E9D74}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3FC228F1-A020-4C5C-B5F8-2C6F348E9D74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FC228F1-A020-4C5C-B5F8-2C6F348E9D74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FC228F1-A020-4C5C-B5F8-2C6F348E9D74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FC228F1-A020-4C5C-B5F8-2C6F348E9D74}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61B45A99-B2A3-40C1-B280-16456B6C7AB0}
+	EndGlobalSection
+EndGlobal
