@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa5="http://schemas.fontawesome.com/icons/"
         xmlns:vm="clr-namespace:Co_Vid19Tracker.ViewModels"
         xmlns:l="clr-namespace:Co_Vid19Tracker"
         xmlns:cmd="clr-namespace:Co_Vid19Tracker.Infrastructure.Commands"
@@ -43,7 +44,15 @@
             </StatusBarItem>
         </StatusBar>
         <TabControl>
-            <TabItem Header="Вкладка №1">
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <!--<Image Source=""/>-->
+                        <fa5:ImageAwesome Icon="Regular_File" Height="15" Margin="0,0,5,0"
+                                          Foreground="LawnGreen"/>
+                        <TextBlock Text="Вкладка 1"/>
+                    </StackPanel>
+                </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="63*"/>
