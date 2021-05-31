@@ -1,4 +1,7 @@
-﻿using Co_Vid19Tracker.ViewModels.Base;
+﻿using Co_Vid19Tracker.Infrastructure.Commands;
+using Co_Vid19Tracker.ViewModels.Base;
+using System.Windows;
+using System.Windows.Input;
 
 namespace Co_Vid19Tracker.ViewModels
 {
@@ -30,6 +33,22 @@ namespace Co_Vid19Tracker.ViewModels
             set => Set(ref _Status,value); 
         }
         #endregion
+
+        #region Команды
+        public ICommand CloseApplicationCommand { get; }
+        private void OnCloseApplicationCommandExecuted(object p)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private bool CanCloseApplicationCommandExecuted(object p) => true;
+
+        #endregion
+
+        public MainWindowViewModel()
+        {
+            CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecuted);
+        }
     }
 
 
