@@ -3,10 +3,35 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         xmlns:local="clr-namespace:Co_Vid19TrackerWPFTest"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="54,60,0,0" VerticalAlignment="Top" Height="74" Width="146"/>
+        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="246,60,0,0" VerticalAlignment="Top" Height="37" Width="178"/>
+        <ComboBox HorizontalAlignment="Left" Margin="400,60,0,0" VerticalAlignment="Top" Width="198" Height="37"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="33,0,0,0" VerticalAlignment="Center" Height="48" Width="188"/>
+        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="246,116,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="54,300,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" Height="56"/>
+        <TextBlock HorizontalAlignment="Left" Margin="445,300,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="153"/>
+        <Slider HorizontalAlignment="Left" Margin="147,357,0,0" VerticalAlignment="Top" Width="451" Height="46" RenderTransformOrigin="0.5,0.5">
+            <Slider.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Slider.RenderTransform>
+        </Slider>
 
     </Grid>
 </Window>
