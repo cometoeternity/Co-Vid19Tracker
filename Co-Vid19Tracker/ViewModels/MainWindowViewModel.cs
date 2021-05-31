@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Co_Vid19Tracker.ViewModels.Base;
+﻿using Co_Vid19Tracker.ViewModels.Base;
 
 namespace Co_Vid19Tracker.ViewModels
 {
