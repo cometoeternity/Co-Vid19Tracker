@@ -2,8 +2,10 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Co_Vid19Tracker"
+             xmlns:cmd="clr-namespace:Co_Vid19Tracker.Infrastructure.Commands"
              StartupUri="Views/Windows/MainWindow.xaml">
     <Application.Resources>
-         
+        <!--Для команды для всего приложения-->
+        <cmd:CloseApplicationCommand x:Key="CloseApplicationCommandFromAppXAML"/>
     </Application.Resources>
 </Application>
