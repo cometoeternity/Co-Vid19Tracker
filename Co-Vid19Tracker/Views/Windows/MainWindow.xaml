@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa5="http://schemas.fontawesome.com/icons/"
+        xmlns:oxy="http://oxyplot.org/wpf"
         xmlns:vm="clr-namespace:Co_Vid19Tracker.ViewModels"
         xmlns:l="clr-namespace:Co_Vid19Tracker"
         xmlns:cmd="clr-namespace:Co_Vid19Tracker.Infrastructure.Commands"
@@ -44,39 +45,47 @@
             </StatusBarItem>
         </StatusBar>
         <TabControl>
-            <TabItem>
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <!--<Image Source=""/>-->
-                        <fa5:ImageAwesome Icon="Regular_File" Height="15" Margin="0,0,5,0"
+            <TabItem Header="График">
+                <oxy:Plot>
+                    <oxy:Plot.Axes>
+                        <oxy:LinearAxis Position="Left"/>
+                        <oxy:LinearAxis Position="Bottom"/>
+                    </oxy:Plot.Axes>
+                    <oxy:LineSeries Color="Red" ItemsSource="{Binding TestDataPoint}" DataFieldX="XValue" DataFieldY="YValue"/>
+                </oxy:Plot>
+            </TabItem>
+            <TabItem Visibility="Collapsed">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <!--<Image Source=""/>-->
+                            <fa5:ImageAwesome Icon="Regular_File" Height="15" Margin="0,0,5,0"
                                           Foreground="LawnGreen"/>
-                        <TextBlock Text="Вкладка 1"/>
-                    </StackPanel>
-                </TabItem.Header>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="63*"/>
-                        <RowDefinition Height="325*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="134*"/>
-                        <ColumnDefinition Width="633*"/>
-                    </Grid.ColumnDefinitions>
-                    <Rectangle Grid.Column="0" Grid.Row="0"
+                            <TextBlock Text="Вкладка 1"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="63*"/>
+                            <RowDefinition Height="325*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="134*"/>
+                            <ColumnDefinition Width="633*"/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle Grid.Column="0" Grid.Row="0"
                                Margin="5,7" Fill="Blue"
                                Stroke="red" StrokeThickness="3"
                                RadiusX="2" RadiusY="5"/>
-                    <Ellipse Grid.Column="1" Grid.Row="0" Fill="red" Stroke="Blue"
+                        <Ellipse Grid.Column="1" Grid.Row="0" Fill="red" Stroke="Blue"
                              StrokeThickness="4">
-                        <Ellipse.InputBindings>
-                            <MouseBinding Command="{Binding CloseApplicationCommand}" MouseAction="LeftDoubleClick"/>
-                        </Ellipse.InputBindings>
-                    </Ellipse>
-                    <GridSplitter Grid.Column="0" Grid.Row="0"
+                            <Ellipse.InputBindings>
+                                <MouseBinding Command="{Binding CloseApplicationCommand}" MouseAction="LeftDoubleClick"/>
+                            </Ellipse.InputBindings>
+                        </Ellipse>
+                        <GridSplitter Grid.Column="0" Grid.Row="0"
                                   Grid.RowSpan="3" HorizontalAlignment="Right" Width="5"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Вкладка №2"></TabItem>
+                    </Grid>
+                </TabItem>
         </TabControl>
     </DockPanel>
 </Window>
