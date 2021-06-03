@@ -35,6 +35,16 @@
             <MenuItem Header="Помощь">
                 <MenuItem Header="О программе"/>
             </MenuItem>
+            <MenuItem Command="{Binding ChangeTabIndexCommand}" CommandParameter="-1">
+                <MenuItem.Header>
+                    <fa5:ImageAwesome Icon="Regular_ArrowAltCircleLeft" Height="15"/>
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem Command="{Binding ChangeTabIndexCommand}" CommandParameter="+1">
+                <MenuItem.Header>
+                    <fa5:ImageAwesome Icon="Regular_ArrowAltCircleRight" Height="15"/>
+                </MenuItem.Header>
+            </MenuItem>
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem MaxWidth="300" MinWidth="150">
@@ -43,8 +53,9 @@
             <StatusBarItem>
                 <ProgressBar Width="120" Height="14" Value="25"/>
             </StatusBarItem>
+            <StatusBarItem Content="{Binding SelectedPageIndex}"/>
         </StatusBar>
-        <TabControl>
+        <TabControl SelectedIndex="{Binding SelectedPageIndex}">
             <TabItem Header="График">
                 <oxy:Plot>
                     <oxy:Plot.Axes>
@@ -54,7 +65,7 @@
                     <oxy:LineSeries Color="Red" ItemsSource="{Binding TestDataPoint}" DataFieldX="XValue" DataFieldY="YValue"/>
                 </oxy:Plot>
             </TabItem>
-            <TabItem Visibility="Collapsed">
+            <TabItem>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <!--<Image Source=""/>-->
@@ -63,29 +74,33 @@
                             <TextBlock Text="Вкладка 1"/>
                         </StackPanel>
                     </TabItem.Header>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="63*"/>
-                            <RowDefinition Height="325*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="134*"/>
-                            <ColumnDefinition Width="633*"/>
-                        </Grid.ColumnDefinitions>
-                        <Rectangle Grid.Column="0" Grid.Row="0"
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="63*"/>
+                        <RowDefinition Height="325*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="134*"/>
+                        <ColumnDefinition Width="633*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Grid.Column="0" Grid.Row="0"
                                Margin="5,7" Fill="Blue"
                                Stroke="red" StrokeThickness="3"
                                RadiusX="2" RadiusY="5"/>
-                        <Ellipse Grid.Column="1" Grid.Row="0" Fill="red" Stroke="Blue"
+                    <Ellipse Grid.Column="1" Grid.Row="0" Fill="red" Stroke="Blue"
                              StrokeThickness="4">
-                            <Ellipse.InputBindings>
-                                <MouseBinding Command="{Binding CloseApplicationCommand}" MouseAction="LeftDoubleClick"/>
-                            </Ellipse.InputBindings>
-                        </Ellipse>
-                        <GridSplitter Grid.Column="0" Grid.Row="0"
+                        <Ellipse.InputBindings>
+                            <MouseBinding Command="{Binding CloseApplicationCommand}" MouseAction="LeftDoubleClick"/>
+                        </Ellipse.InputBindings>
+                    </Ellipse>
+                    <GridSplitter Grid.Column="0" Grid.Row="0"
                                   Grid.RowSpan="3" HorizontalAlignment="Right" Width="5"/>
-                    </Grid>
-                </TabItem>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Вкладка 2"/>
+            <TabItem Header="Вкладка 3"/>
+            <TabItem Header="Вкладка 4"/>
+            <TabItem Header="Вкладка 5"/>
         </TabControl>
     </DockPanel>
 </Window>

@@ -11,12 +11,24 @@ namespace Co_Vid19Tracker.ViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {
+        #region Индекс номера выбранной вкладки
+        private int _SelectedPageIndex;
+
+        public int SelectedPageIndex
+        {
+            get => _SelectedPageIndex;
+            set => Set(ref _SelectedPageIndex, value);
+        }
+        #endregion
+
+        #region Тестовые точки для графика
         private IEnumerable<DataPoint> _TestDataPoint;
-        public IEnumerable<DataPoint> TestDataPoint 
-        { 
+        public IEnumerable<DataPoint> TestDataPoint
+        {
             get => _TestDataPoint; 
             set => Set(ref _TestDataPoint, value); 
         }
+        #endregion
 
         #region Заголовок
         private string _Title = "Анализ статистики заболеваемости";
@@ -54,13 +66,23 @@ namespace Co_Vid19Tracker.ViewModels
 
         private bool CanCloseApplicationCommandExecuted(object p) => true;
 
+
+        public ICommand ChangeTabIndexCommand { get; }
+
+        private void OnChangeTabIndexCommandExecuted(object p)
+        {
+            if (p is null) return;
+            SelectedPageIndex += Convert.ToInt32(p);
+        }
+        private bool CanChangeTabIndexCommandExecuted(object p) => true;
+
         #endregion
 
         public MainWindowViewModel()
         {
             CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecuted);
-
-
+            ChangeTabIndexCommand = new LambdaCommand(OnChangeTabIndexCommandExecuted, CanChangeTabIndexCommandExecuted);
+            
             var data_points = new List<DataPoint>((int)(360 / 0.1));
             for( var x = 0d; x< 366; x+=0.1)
             {
