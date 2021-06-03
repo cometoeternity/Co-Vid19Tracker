@@ -40,16 +40,28 @@ namespace Co_Vid19TrackerConsole
                 //После этого нужно проверить, что строка не пустая
                 //Если строка пустая, то делаем следующий цикл
                 if (string.IsNullOrWhiteSpace(line)) continue;
-                yield return line;  
+                yield return line.Replace("Korea,", "Korea - ");
             }
         }
         //Метод, выделяющий необходимые нам данные, разпарсим первую
         //строку для извлечения всех дат
         private static DateTime[] GetDateTimes() => GetDataLines()
-            .First().Split(',').Skip(4).Select(s => DateTime.Parse(s, CultureInfo.InvariantCulture))
+            .First().Split(',').Skip(5).Select(s => DateTime.Parse(s, CultureInfo.InvariantCulture))
             .ToArray();
-       //Теперь необходимо извлечь данные по всем странам
 
+
+       //Теперь необходимо извлечь данные по всем странам
+        private static IEnumerable<(string Country, string Province, int[] Counts)> GetData()
+        {
+            var lines = GetDataLines().Skip(1).Select(line => line.Split(','));
+            foreach(var row in lines)
+            {
+                var province = row[0].Trim();
+                var countryName = row[1].Trim(' ', '"');
+                var counts = row.Skip(5).Select(int.Parse).ToArray();
+                yield return (countryName, province, counts);
+            }
+        }
         
         static void Main(string[] args)
         {
@@ -59,9 +71,11 @@ namespace Co_Vid19TrackerConsole
             //var client = new HttpClient();
             //var response = client.GetAsync(DATA_URL).Result;
             //var csv_str = response.Content.ReadAsStringAsync().Result;
-            var dates = GetDateTimes();
-            Console.WriteLine(string.Join("\r\n",dates));
+            //var dates = GetDateTimes();
+            //Console.WriteLine(string.Join("\r\n",dates));
+            var russia_data = GetData().First(v => v.Country.Equals("Russia", StringComparison.OrdinalIgnoreCase));
 
+            Console.WriteLine(string.Join("\r\n", GetDateTimes().Zip(russia_data.Counts, (date, count) => $"{date:dd:MM:yy} - {count}")));
             Console.ReadLine();
         }
     }

@@ -1,5 +1,9 @@
 ﻿using Co_Vid19Tracker.Infrastructure.Commands;
+using Co_Vid19Tracker.Models;
 using Co_Vid19Tracker.ViewModels.Base;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 
@@ -7,6 +11,13 @@ namespace Co_Vid19Tracker.ViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {
+        private IEnumerable<DataPoint> _TestDataPoint;
+        public IEnumerable<DataPoint> TestDataPoint 
+        { 
+            get => _TestDataPoint; 
+            set => Set(ref _TestDataPoint, value); 
+        }
+
         #region Заголовок
         private string _Title = "Анализ статистики заболеваемости";
         /// <summary>Заголовок окна</summary>
@@ -48,6 +59,16 @@ namespace Co_Vid19Tracker.ViewModels
         public MainWindowViewModel()
         {
             CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecuted);
+
+
+            var data_points = new List<DataPoint>((int)(360 / 0.1));
+            for( var x = 0d; x< 366; x+=0.1)
+            {
+                const double to_rad = Math.PI / 180;
+                var y = Math.Sin(x * to_rad);
+                data_points.Add(new DataPoint { XValue = x, YValue = y }); 
+            }
+            TestDataPoint = data_points;
         }
     }
 
